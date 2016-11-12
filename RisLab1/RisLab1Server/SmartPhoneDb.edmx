@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SmartPhonesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BrandSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PlantLocationsId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocationsByBrandSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlantLocationsId" Type="int" Nullable="false" />
+          <Property Name="LocationsId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocationsSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SmartPhoneSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="Model" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SpecificationsId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecificationSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RAMInGB" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BrandLocationsByBrand">
+          <End Role="BrandSet" Type="Self.BrandSet" Multiplicity="1" />
+          <End Role="LocationsByBrandSet" Type="Self.LocationsByBrandSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationsByBrandSet">
+              <PropertyRef Name="PlantLocationsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrandSmartPhone">
+          <End Role="BrandSet" Type="Self.BrandSet" Multiplicity="1" />
+          <End Role="SmartPhoneSet" Type="Self.SmartPhoneSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SmartPhoneSet">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationsLocationsByBrand">
+          <End Role="LocationsSet" Type="Self.LocationsSet" Multiplicity="1" />
+          <End Role="LocationsByBrandSet" Type="Self.LocationsByBrandSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationsSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationsByBrandSet">
+              <PropertyRef Name="LocationsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SmartPhoneSpecification">
+          <End Role="SpecificationSet" Type="Self.SpecificationSet" Multiplicity="1" />
+          <End Role="SmartPhoneSet" Type="Self.SmartPhoneSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecificationSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SmartPhoneSet">
+              <PropertyRef Name="SpecificationsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SmartPhonesModelContainer">
+          <EntitySet Name="BrandSet" EntityType="Self.BrandSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationsByBrandSet" EntityType="Self.LocationsByBrandSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationsSet" EntityType="Self.LocationsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SmartPhoneSet" EntityType="Self.SmartPhoneSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpecificationSet" EntityType="Self.SpecificationSet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BrandLocationsByBrand" Association="Self.FK_BrandLocationsByBrand">
+            <End Role="BrandSet" EntitySet="BrandSet" />
+            <End Role="LocationsByBrandSet" EntitySet="LocationsByBrandSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrandSmartPhone" Association="Self.FK_BrandSmartPhone">
+            <End Role="BrandSet" EntitySet="BrandSet" />
+            <End Role="SmartPhoneSet" EntitySet="SmartPhoneSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationsLocationsByBrand" Association="Self.FK_LocationsLocationsByBrand">
+            <End Role="LocationsSet" EntitySet="LocationsSet" />
+            <End Role="LocationsByBrandSet" EntitySet="LocationsByBrandSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SmartPhoneSpecification" Association="Self.FK_SmartPhoneSpecification">
+            <End Role="SpecificationSet" EntitySet="SpecificationSet" />
+            <End Role="SmartPhoneSet" EntitySet="SmartPhoneSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartPhonesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BrandSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PlantLocationsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LocationsByBrandSet" Relationship="Self.FK_BrandLocationsByBrand" FromRole="BrandSet" ToRole="LocationsByBrandSet" />
+          <NavigationProperty Name="SmartPhoneSet" Relationship="Self.FK_BrandSmartPhone" FromRole="BrandSet" ToRole="SmartPhoneSet" />
+        </EntityType>
+        <EntityType Name="LocationsByBrandSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlantLocationsId" Type="Int32" Nullable="false" />
+          <Property Name="LocationsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BrandSet" Relationship="Self.FK_BrandLocationsByBrand" FromRole="LocationsByBrandSet" ToRole="BrandSet" />
+          <NavigationProperty Name="LocationsSet" Relationship="Self.FK_LocationsLocationsByBrand" FromRole="LocationsByBrandSet" ToRole="LocationsSet" />
+        </EntityType>
+        <EntityType Name="LocationsSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LocationsByBrandSet" Relationship="Self.FK_LocationsLocationsByBrand" FromRole="LocationsSet" ToRole="LocationsByBrandSet" />
+        </EntityType>
+        <EntityType Name="SmartPhoneSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SpecificationsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BrandSet" Relationship="Self.FK_BrandSmartPhone" FromRole="SmartPhoneSet" ToRole="BrandSet" />
+          <NavigationProperty Name="SpecificationSet" Relationship="Self.FK_SmartPhoneSpecification" FromRole="SmartPhoneSet" ToRole="SpecificationSet" />
+        </EntityType>
+        <EntityType Name="SpecificationSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RAMInGB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SmartPhoneSet" Relationship="Self.FK_SmartPhoneSpecification" FromRole="SpecificationSet" ToRole="SmartPhoneSet" />
+        </EntityType>
+        <Association Name="FK_BrandLocationsByBrand">
+          <End Role="BrandSet" Type="Self.BrandSet" Multiplicity="1" />
+          <End Role="LocationsByBrandSet" Type="Self.LocationsByBrandSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationsByBrandSet">
+              <PropertyRef Name="PlantLocationsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrandSmartPhone">
+          <End Role="BrandSet" Type="Self.BrandSet" Multiplicity="1" />
+          <End Role="SmartPhoneSet" Type="Self.SmartPhoneSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SmartPhoneSet">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationsLocationsByBrand">
+          <End Role="LocationsSet" Type="Self.LocationsSet" Multiplicity="1" />
+          <End Role="LocationsByBrandSet" Type="Self.LocationsByBrandSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationsSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationsByBrandSet">
+              <PropertyRef Name="LocationsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SmartPhoneSpecification">
+          <End Role="SpecificationSet" Type="Self.SpecificationSet" Multiplicity="1" />
+          <End Role="SmartPhoneSet" Type="Self.SmartPhoneSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecificationSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SmartPhoneSet">
+              <PropertyRef Name="SpecificationsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SmartPhonesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BrandSet" EntityType="Self.BrandSet" />
+          <EntitySet Name="LocationsByBrandSet" EntityType="Self.LocationsByBrandSet" />
+          <EntitySet Name="LocationsSet" EntityType="Self.LocationsSet" />
+          <EntitySet Name="SmartPhoneSet" EntityType="Self.SmartPhoneSet" />
+          <EntitySet Name="SpecificationSet" EntityType="Self.SpecificationSet" />
+          <AssociationSet Name="FK_BrandLocationsByBrand" Association="Self.FK_BrandLocationsByBrand">
+            <End Role="BrandSet" EntitySet="BrandSet" />
+            <End Role="LocationsByBrandSet" EntitySet="LocationsByBrandSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrandSmartPhone" Association="Self.FK_BrandSmartPhone">
+            <End Role="BrandSet" EntitySet="BrandSet" />
+            <End Role="SmartPhoneSet" EntitySet="SmartPhoneSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationsLocationsByBrand" Association="Self.FK_LocationsLocationsByBrand">
+            <End Role="LocationsSet" EntitySet="LocationsSet" />
+            <End Role="LocationsByBrandSet" EntitySet="LocationsByBrandSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SmartPhoneSpecification" Association="Self.FK_SmartPhoneSpecification">
+            <End Role="SpecificationSet" EntitySet="SpecificationSet" />
+            <End Role="SmartPhoneSet" EntitySet="SmartPhoneSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SmartPhonesModelContainer" CdmEntityContainer="SmartPhonesEntities">
+          <EntitySetMapping Name="BrandSet">
+            <EntityTypeMapping TypeName="SmartPhonesModel.BrandSet">
+              <MappingFragment StoreEntitySet="BrandSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PlantLocationsId" ColumnName="PlantLocationsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationsByBrandSet">
+            <EntityTypeMapping TypeName="SmartPhonesModel.LocationsByBrandSet">
+              <MappingFragment StoreEntitySet="LocationsByBrandSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PlantLocationsId" ColumnName="PlantLocationsId" />
+                <ScalarProperty Name="LocationsId" ColumnName="LocationsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationsSet">
+            <EntityTypeMapping TypeName="SmartPhonesModel.LocationsSet">
+              <MappingFragment StoreEntitySet="LocationsSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SmartPhoneSet">
+            <EntityTypeMapping TypeName="SmartPhonesModel.SmartPhoneSet">
+              <MappingFragment StoreEntitySet="SmartPhoneSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SpecificationsId" ColumnName="SpecificationsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecificationSet">
+            <EntityTypeMapping TypeName="SmartPhonesModel.SpecificationSet">
+              <MappingFragment StoreEntitySet="SpecificationSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RAMInGB" ColumnName="RAMInGB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

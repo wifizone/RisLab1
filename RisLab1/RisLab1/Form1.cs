@@ -16,5 +16,11 @@ namespace RisLab1
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CsvParser parser = new CsvParser();
+            var dbEntries = parser.GetDbEntries();
+        }
     }
 }

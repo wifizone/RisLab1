@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RisLab1
+namespace RisLab1Server
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SmartPhoneDbContainer : DbContext
+    public partial class SmartPhonesEntities : DbContext
     {
-        public SmartPhoneDbContainer()
-            : base("name=SmartPhoneDbContainer")
+        public SmartPhonesEntities()
+            : base("name=SmartPhonesEntities")
         {
         }
     
@@ -25,10 +25,10 @@ namespace RisLab1
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<SmartPhone> SmartPhoneSet { get; set; }
-        public virtual DbSet<Specification> SpecificationSet { get; set; }
-        public virtual DbSet<Brand> BrandSet { get; set; }
-        public virtual DbSet<Locations> LocationsSet { get; set; }
-        public virtual DbSet<LocationsByBrand> LocationsByBrandSet { get; set; }
+        public virtual DbSet<BrandSet> BrandSet { get; set; }
+        public virtual DbSet<LocationsByBrandSet> LocationsByBrandSet { get; set; }
+        public virtual DbSet<LocationsSet> LocationsSet { get; set; }
+        public virtual DbSet<SmartPhoneSet> SmartPhoneSet { get; set; }
+        public virtual DbSet<SpecificationSet> SpecificationSet { get; set; }
     }
 }

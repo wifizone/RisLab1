@@ -7,23 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RisLab1
+namespace RisLab1Server
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Locations
+    public partial class LocationsByBrandSet
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Locations()
-        {
-            this.LocationsByBrand = new HashSet<LocationsByBrand>();
-        }
-    
         public int Id { get; set; }
-        public string Address { get; set; }
+        public int PlantLocationsId { get; set; }
+        public int LocationsId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LocationsByBrand> LocationsByBrand { get; set; }
+        public virtual BrandSet BrandSet { get; set; }
+        public virtual LocationsSet LocationsSet { get; set; }
     }
 }

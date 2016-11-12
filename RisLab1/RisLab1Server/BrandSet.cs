@@ -7,23 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RisLab1
+namespace RisLab1Server
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Specification
+    public partial class BrandSet
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Specification()
+        public BrandSet()
         {
-            this.SmartPhone = new HashSet<SmartPhone>();
+            this.LocationsByBrandSet = new HashSet<LocationsByBrandSet>();
+            this.SmartPhoneSet = new HashSet<SmartPhoneSet>();
         }
     
         public int Id { get; set; }
-        public string RAMInGB { get; set; }
+        public string Name { get; set; }
+        public int PlantLocationsId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SmartPhone> SmartPhone { get; set; }
+        public virtual ICollection<LocationsByBrandSet> LocationsByBrandSet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SmartPhoneSet> SmartPhoneSet { get; set; }
     }
 }

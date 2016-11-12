@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RisLab1
+namespace RisLab1Server
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SmartPhone
+    public partial class SmartPhoneSet
     {
         public int Id { get; set; }
         public int BrandId { get; set; }
         public string Model { get; set; }
         public int SpecificationsId { get; set; }
     
-        public virtual Specification Specification { get; set; }
-        public virtual Brand Brand { get; set; }
+        public virtual BrandSet BrandSet { get; set; }
+        public virtual SpecificationSet SpecificationSet { get; set; }
     }
 }
