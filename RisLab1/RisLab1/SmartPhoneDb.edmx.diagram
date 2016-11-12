@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8158b9aca36440afb37c3502c17f6c67" Name="Diagram1" >
+        <EntityTypeShape EntityType="SmartPhoneDb.SmartPhone" Width="1.5" PointX="4.875" PointY="1.875" />
+        <EntityTypeShape EntityType="SmartPhoneDb.Specification" Width="1.5" PointX="2.25" PointY="2.125" />
+        <EntityTypeShape EntityType="SmartPhoneDb.Brand" Width="1.5" PointX="7.625" PointY="2.875" />
+        <EntityTypeShape EntityType="SmartPhoneDb.Locations" Width="1.5" PointX="13" PointY="1.625" />
+        <EntityTypeShape EntityType="SmartPhoneDb.LocationsByBrand" Width="1.875" PointX="10.25" PointY="2.875" />
+        <AssociationConnector Association="SmartPhoneDb.SmartPhoneSpecification" />
+        <AssociationConnector Association="SmartPhoneDb.BrandSmartPhone" />
+        <AssociationConnector Association="SmartPhoneDb.LocationsLocationsByBrand" />
+        <AssociationConnector Association="SmartPhoneDb.BrandLocationsByBrand" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
