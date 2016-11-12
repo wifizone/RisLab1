@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8158b9aca36440afb37c3502c17f6c67" Name="Diagram1" >
-        <EntityTypeShape EntityType="SmartPhoneDb.SmartPhone" Width="1.5" PointX="4.875" PointY="1.875" />
-        <EntityTypeShape EntityType="SmartPhoneDb.Specification" Width="1.5" PointX="2.25" PointY="2.125" />
-        <EntityTypeShape EntityType="SmartPhoneDb.Brand" Width="1.5" PointX="7.625" PointY="2.875" />
-        <EntityTypeShape EntityType="SmartPhoneDb.Locations" Width="1.5" PointX="13" PointY="1.625" />
-        <EntityTypeShape EntityType="SmartPhoneDb.LocationsByBrand" Width="1.875" PointX="10.25" PointY="2.875" />
+        <EntityTypeShape EntityType="SmartPhoneDb.SmartPhone" Width="1.5" PointX="5" PointY="1.125" />
+        <EntityTypeShape EntityType="SmartPhoneDb.Specification" Width="1.5" PointX="3.25" PointY="1.125" />
+        <EntityTypeShape EntityType="SmartPhoneDb.Brand" Width="1.5" PointX="7" PointY="1" />
+        <EntityTypeShape EntityType="SmartPhoneDb.Locations" Width="1.5" PointX="11.5" PointY="1.25" />
+        <EntityTypeShape EntityType="SmartPhoneDb.LocationsByBrand" Width="1.875" PointX="9.125" PointY="1" />
         <AssociationConnector Association="SmartPhoneDb.SmartPhoneSpecification" />
         <AssociationConnector Association="SmartPhoneDb.BrandSmartPhone" />
         <AssociationConnector Association="SmartPhoneDb.LocationsLocationsByBrand" />

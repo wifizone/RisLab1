@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RisLab1
+namespace RisLab1Server
 {
     static class Program
     {
@@ -17,7 +17,6 @@ namespace RisLab1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            
         }
     }
 }

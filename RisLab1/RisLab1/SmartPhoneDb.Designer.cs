@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\anton\Source\Repos\RisLab1\RisLab1\RisLab1\SmartPhoneDb.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\antonpoluianov\Source\Repos\RisLab1\RisLab1\RisLab1\SmartPhoneDb.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.
