@@ -59,8 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrandSet.cs">
-      <DependentUpon>SmartPhoneDb.tt</DependentUpon>
+      <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DbInserter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,35 +69,34 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="LocationsByBrandSet.cs">
-      <DependentUpon>SmartPhoneDb.tt</DependentUpon>
+      <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LocationsSet.cs">
-      <DependentUpon>SmartPhoneDb.tt</DependentUpon>
+      <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueMessageReceiver.cs" />
-    <Compile Include="ReceivedMessage.cs" />
-    <Compile Include="SmartPhoneDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SmartPhoneDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SmartPhoneDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SmartPhoneDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SmartPhoneDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SmartPhoneDb.edmx</DependentUpon>
-    </Compile>
     <Compile Include="SmartPhoneSet.cs">
-      <DependentUpon>SmartPhoneDb.tt</DependentUpon>
+      <DependentUpon>SmartPhonesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmartPhonesModel.Context.cs">
+      <DependentUpon>SmartPhonesModel.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SmartPhonesModel.cs">
+      <DependentUpon>SmartPhonesModel.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SmartPhonesModel.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SmartPhonesModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="SpecificationSet.cs">
-      <DependentUpon>SmartPhoneDb.tt</DependentUpon>
+      <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -120,28 +120,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="SmartPhoneDb.edmx">
+    <EntityDeploy Include="SmartPhonesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SmartPhoneDb.Designer.cs</LastGenOutput>
+      <LastGenOutput>SmartPhonesModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="SmartPhoneDb.edmx.diagram">
-      <DependentUpon>SmartPhoneDb.edmx</DependentUpon>
+    <None Include="SmartPhonesModel.edmx.diagram">
+      <DependentUpon>SmartPhonesModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SmartPhoneDb.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SmartPhoneDb.edmx</DependentUpon>
-      <LastGenOutput>SmartPhoneDb.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="SmartPhoneDb.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SmartPhoneDb.edmx</DependentUpon>
-      <LastGenOutput>SmartPhoneDb.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -151,6 +139,18 @@
       <Project>{dddcdf61-4e98-4c2b-8f1e-4e8de76cc6c1}</Project>
       <Name>RisLab1Client</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SmartPhonesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SmartPhonesModel.Context.cs</LastGenOutput>
+      <DependentUpon>SmartPhonesModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="SmartPhonesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SmartPhonesModel.cs</LastGenOutput>
+      <DependentUpon>SmartPhonesModel.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

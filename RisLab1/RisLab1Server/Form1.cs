@@ -14,9 +14,6 @@ namespace RisLab1Server
 {
     public partial class Form1 : Form
     {
-
-        private Thread t = null;                // поток, отвечающий за работу с очередью сообщений
-        private bool _continue = true;          // флаг, указывающий продолжается ли работа с мэйлслотом
         private QueueMessageReceiver queueMessageReceiver;
 
         public Form1()
@@ -38,9 +35,10 @@ namespace RisLab1Server
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-
-            queueMessageReceiver.ReceivingThread.Abort();
+            if (queueMessageReceiver != null)
+            {
+                queueMessageReceiver.ReceivingThread.Abort();
+            }
         }
     }
 }

@@ -18,7 +18,6 @@ namespace RisLab1Server
         private MessageQueue q = null;          // очередь сообщений
         public Thread ReceivingThread { get; set; } Thread t = null;                // поток, отвечающий за работу с очередью сообщений
         private bool _continue = true;          // флаг, указывающий продолжается ли работа с мэйлслотом
-        public ReceivedMessage Message { get; set; }
         public Form1 MyForm1 { get; set; }
 
         public QueueMessageReceiver(Form1 form1)
@@ -58,7 +57,7 @@ namespace RisLab1Server
                         MyForm1.notificationRichTextBox.Text += "Сообщение от : " + msg.Label + " получено" + "\n";     // выводим полученное сообщение на форму
                 });
 
-                Message = new ReceivedMessage() {Label = msg.Label, DbEntries = (List<DbEntry>) msg.Body};
+                DbInserter.InsertToDb((List<DbEntry>)msg.Body);
 
                 Thread.Sleep(500);          // приостанавливаем работу потока перед тем, как приcтупить к обслуживанию очередного клиента
             }
