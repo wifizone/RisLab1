@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RisLab1
 {
-    class DbEntry
+    public class DbEntry
     {
         public string Model { get; set; }
         public string Brand { get; set; }

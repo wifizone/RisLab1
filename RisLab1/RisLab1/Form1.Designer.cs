@@ -33,11 +33,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(87, 12);
+            this.button1.Location = new System.Drawing.Point(54, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.Size = new System.Drawing.Size(174, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Прочитать csv";
+            this.button1.Text = "Отправить в очередь";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Лабораторная 1";
+            this.Text = "Лабораторная 1 клиент";
             this.ResumeLayout(false);
 
         }

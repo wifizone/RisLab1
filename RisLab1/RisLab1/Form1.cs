@@ -19,8 +19,8 @@ namespace RisLab1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CsvParser parser = new CsvParser();
-            var dbEntries = parser.GetDbEntries();
+            QueueMessageSender queueMessager = new QueueMessageSender();
+            queueMessager.SendMessage(new CsvParser().GetDbEntries());
         }
     }
 }

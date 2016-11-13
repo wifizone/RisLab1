@@ -28,12 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.notificationRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.SuspendLayout();
+            // 
+            // notificationRichTextBox
+            // 
+            this.notificationRichTextBox.Location = new System.Drawing.Point(13, 13);
+            this.notificationRichTextBox.Name = "notificationRichTextBox";
+            this.notificationRichTextBox.Size = new System.Drawing.Size(259, 236);
+            this.notificationRichTextBox.TabIndex = 0;
+            this.notificationRichTextBox.Text = "";
+            this.notificationRichTextBox.TextChanged += new System.EventHandler(this.notificationRichTextBox_TextChanged);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.notificationRichTextBox);
+            this.Name = "Form1";
+            this.Text = "Лабораторная 1 сервер";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        public System.Windows.Forms.RichTextBox notificationRichTextBox;
     }
 }
 
