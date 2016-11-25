@@ -22,5 +22,10 @@ namespace RisLab1
             QueueMessageSender queueMessager = new QueueMessageSender();
             queueMessager.SendMessage(new CsvParser().GetDbEntries());
         }
+
+        private void buttonSendSocket_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

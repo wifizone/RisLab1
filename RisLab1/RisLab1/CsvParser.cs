@@ -11,7 +11,6 @@ namespace RisLab1
 {
     class CsvParser
     {
-
         const string csvPath = @"C:\Users\antonpoluianov\Source\Repos\RisLab1\RisLab1\RisLab1\csvFile\SmartPhones.csv";
 
         public List<DbEntry> GetDbEntries()

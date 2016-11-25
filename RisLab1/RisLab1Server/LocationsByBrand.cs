@@ -12,13 +12,13 @@ namespace RisLab1Server
     using System;
     using System.Collections.Generic;
     
-    public partial class LocationsByBrandSet
+    public partial class LocationsByBrand
     {
         public int Id { get; set; }
-        public int PlantLocationsId { get; set; }
-        public int LocationsId { get; set; }
+        public int BrandId { get; set; }
+        public int LocationId { get; set; }
     
-        public virtual BrandSet BrandSet { get; set; }
-        public virtual LocationsSet LocationsSet { get; set; }
+        public virtual Brand Brand { get; set; }
+        public virtual Location Location { get; set; }
     }
 }

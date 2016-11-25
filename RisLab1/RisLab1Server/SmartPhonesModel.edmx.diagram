@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d0a43571d5fd4aee82ff884ebf9f7e41" Name="Diagram1">
-        <EntityTypeShape EntityType="SmartPhonesModel.BrandSet" Width="1.5" PointX="5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhonesModel.LocationsByBrandSet" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhonesModel.LocationsSet" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhonesModel.SmartPhoneSet" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartPhonesModel.SpecificationSet" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="SmartPhonesModel.FK_BrandLocationsByBrand" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhonesModel.FK_BrandSmartPhone" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhonesModel.FK_LocationsLocationsByBrand" ManuallyRouted="false" />
-        <AssociationConnector Association="SmartPhonesModel.FK_SmartPhoneSpecification" ManuallyRouted="false" />
+      <Diagram DiagramId="f690a2e2133546a2827fce3bf29c31ac" Name="Diagram1" >
+        <EntityTypeShape EntityType="SmartPhonesModel.Specification" Width="1.5" PointX="1" PointY="0.625" />
+        <EntityTypeShape EntityType="SmartPhonesModel.SmartPhone" Width="1.5" PointX="3" PointY="0.5" />
+        <EntityTypeShape EntityType="SmartPhonesModel.Brand" Width="1.5" PointX="5.25" PointY="0.625" />
+        <EntityTypeShape EntityType="SmartPhonesModel.LocationsByBrand" Width="1.5" PointX="5" PointY="2.875" />
+        <EntityTypeShape EntityType="SmartPhonesModel.Location" Width="1.5" PointX="3" PointY="3.5" />
+        <AssociationConnector Association="SmartPhonesModel.SpecificationSmartPhone" />
+        <AssociationConnector Association="SmartPhonesModel.BrandSmartPhone" />
+        <AssociationConnector Association="SmartPhonesModel.BrandLocationsByBrand" />
+        <AssociationConnector Association="SmartPhonesModel.LocationLocationsByBrand" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

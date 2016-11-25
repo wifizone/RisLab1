@@ -12,14 +12,15 @@ namespace RisLab1Server
     using System;
     using System.Collections.Generic;
     
-    public partial class SmartPhoneSet
+    public partial class SmartPhone
     {
         public int Id { get; set; }
-        public int BrandId { get; set; }
         public string Model { get; set; }
         public int SpecificationsId { get; set; }
+        public int SpecificationId { get; set; }
+        public int BrandId { get; set; }
     
-        public virtual BrandSet BrandSet { get; set; }
-        public virtual SpecificationSet SpecificationSet { get; set; }
+        public virtual Specification Specification { get; set; }
+        public virtual Brand Brand { get; set; }
     }
 }

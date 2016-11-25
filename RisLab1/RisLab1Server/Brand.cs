@@ -12,18 +12,21 @@ namespace RisLab1Server
     using System;
     using System.Collections.Generic;
     
-    public partial class SpecificationSet
+    public partial class Brand
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SpecificationSet()
+        public Brand()
         {
-            this.SmartPhoneSet = new HashSet<SmartPhoneSet>();
+            this.SmartPhone = new HashSet<SmartPhone>();
+            this.LocationsByBrand = new HashSet<LocationsByBrand>();
         }
     
         public int Id { get; set; }
-        public string RAMInGB { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SmartPhoneSet> SmartPhoneSet { get; set; }
+        public virtual ICollection<SmartPhone> SmartPhone { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LocationsByBrand> LocationsByBrand { get; set; }
     }
 }

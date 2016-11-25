@@ -7,6 +7,7 @@ using RisLab1;
 using System.Data.Entity;
 using System.Dynamic;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 
 namespace RisLab1Server
 {
@@ -22,17 +23,17 @@ namespace RisLab1Server
 
         static void InsertAnEntry(DbEntry dbEntry)
         {
-            SmartPhonesEntities context = new SmartPhonesEntities();
+            SmartPhonesModelContainer context = new SmartPhonesModelContainer();
             int specificationId = InsertSpecification(dbEntry, context);
             int locationId = InsertLocation(dbEntry, context);
             int brandId = InsertBrand(dbEntry, context);
-            InsertSpecificationsByBrand(locationId, brandId, dbEntry, context);
+            InsertLocationByBrand(locationId, brandId, dbEntry, context);
             InsertSmartPhoneSet(specificationId, brandId, dbEntry, context);
         }
 
-        private static int InsertSpecification(DbEntry dbEntry, SmartPhonesEntities context)
+        private static int InsertSpecification(DbEntry dbEntry, SmartPhonesModelContainer context)
         {
-            SpecificationSet specification = new SpecificationSet()
+            Specification specification = new Specification()
             {
                 RAMInGB = dbEntry.RAM
             };
@@ -42,21 +43,21 @@ namespace RisLab1Server
             return specification.Id;
         }
 
-        private static int InsertLocation(DbEntry dbEntry, SmartPhonesEntities context)
+        private static int InsertLocation(DbEntry dbEntry, SmartPhonesModelContainer context)
         {
-            LocationsSet location = new LocationsSet()
+            Location location = new Location()
             {
                 Address = dbEntry.Location
             };
-            context.LocationsSet.Add(location);
+            context.LocationSet.Add(location);
             context.SaveChanges();
 
             return location.Id;
         }
 
-        private static int InsertBrand(DbEntry dbEntry, SmartPhonesEntities context)
+        private static int InsertBrand(DbEntry dbEntry, SmartPhonesModelContainer context)
         {
-            BrandSet brand = new BrandSet()
+            Brand brand = new Brand()
             {
                 Name = dbEntry.Brand
             };
@@ -66,12 +67,12 @@ namespace RisLab1Server
             return brand.Id;
         }
 
-        private static int InsertSpecificationsByBrand(int locationId, int brandId, DbEntry dbEntry, SmartPhonesEntities context)
+        private static int InsertLocationByBrand(int locationId, int brandId, DbEntry dbEntry, SmartPhonesModelContainer context)
         {
-            LocationsByBrandSet locationByBrand = new LocationsByBrandSet()
+            LocationsByBrand locationByBrand = new LocationsByBrand()
             {
-                LocationsId = locationId,
-                PlantLocationsId = brandId
+                LocationId = locationId,
+                BrandId = brandId
             };
             context.LocationsByBrandSet.Add(locationByBrand);
             context.SaveChanges();
@@ -79,13 +80,13 @@ namespace RisLab1Server
             return locationByBrand.Id;
         }
 
-        private static int InsertSmartPhoneSet(int specificationsId, int brandId, DbEntry dbEntry, SmartPhonesEntities context)
+        private static int InsertSmartPhoneSet(int specificationId, int brandId, DbEntry dbEntry, SmartPhonesModelContainer context)
         {
-            SmartPhoneSet smartphone = new SmartPhoneSet()
+            SmartPhone smartphone = new SmartPhone()
             {
                 BrandId = brandId,
-                Model = dbEntry.Model,
-                SpecificationsId = specificationsId
+                SpecificationId = specificationId,
+                Model = dbEntry.Model             
             };
             context.SmartPhoneSet.Add(smartphone);
             context.SaveChanges();

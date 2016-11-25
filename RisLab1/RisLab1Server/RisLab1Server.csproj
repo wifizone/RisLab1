@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrandSet.cs">
+    <Compile Include="Brand.cs">
       <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DbInserter.cs" />
@@ -68,34 +68,34 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="LocationsByBrandSet.cs">
+    <Compile Include="Location.cs">
       <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="LocationsSet.cs">
+    <Compile Include="LocationsByBrand.cs">
       <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueMessageReceiver.cs" />
-    <Compile Include="SmartPhoneSet.cs">
+    <Compile Include="SmartPhone.cs">
       <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SmartPhonesModel.Context.cs">
-      <DependentUpon>SmartPhonesModel.Context.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartPhonesModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="SmartPhonesModel.cs">
-      <DependentUpon>SmartPhonesModel.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SmartPhonesModel.Designer.cs">
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>SmartPhonesModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="SpecificationSet.cs">
+    <Compile Include="Specification.cs">
       <DependentUpon>SmartPhonesModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
@@ -144,6 +144,7 @@
       <LastGenOutput>SmartPhonesModel.Context.cs</LastGenOutput>
       <DependentUpon>SmartPhonesModel.edmx</DependentUpon>
     </Content>
+    <Content Include="SmartPhonesModel.edmx.sql" />
     <Content Include="SmartPhonesModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SmartPhonesModel.cs</LastGenOutput>

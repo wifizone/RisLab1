@@ -13,10 +13,10 @@ namespace RisLab1Server
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SmartPhonesEntities : DbContext
+    public partial class SmartPhonesModelContainer : DbContext
     {
-        public SmartPhonesEntities()
-            : base("name=SmartPhonesEntities")
+        public SmartPhonesModelContainer()
+            : base("name=SmartPhonesModelContainer")
         {
         }
     
@@ -25,10 +25,10 @@ namespace RisLab1Server
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BrandSet> BrandSet { get; set; }
-        public virtual DbSet<LocationsByBrandSet> LocationsByBrandSet { get; set; }
-        public virtual DbSet<LocationsSet> LocationsSet { get; set; }
-        public virtual DbSet<SmartPhoneSet> SmartPhoneSet { get; set; }
-        public virtual DbSet<SpecificationSet> SpecificationSet { get; set; }
+        public virtual DbSet<Specification> SpecificationSet { get; set; }
+        public virtual DbSet<SmartPhone> SmartPhoneSet { get; set; }
+        public virtual DbSet<Brand> BrandSet { get; set; }
+        public virtual DbSet<LocationsByBrand> LocationsByBrandSet { get; set; }
+        public virtual DbSet<Location> LocationSet { get; set; }
     }
 }
