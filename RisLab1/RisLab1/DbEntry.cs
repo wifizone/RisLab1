@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RisLab1
 {
+    [Serializable]
     public class DbEntry
     {
         public string Model { get; set; }

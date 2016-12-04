@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.buttonSendQueue = new System.Windows.Forms.Button();
-            this.buttonSendSocket = new System.Windows.Forms.Button();
+            this.sendSocketBtn = new System.Windows.Forms.Button();
             this.ipTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.connectBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSendQueue
@@ -44,15 +45,15 @@
             this.buttonSendQueue.UseVisualStyleBackColor = true;
             this.buttonSendQueue.Click += new System.EventHandler(this.button1_Click);
             // 
-            // buttonSendSocket
+            // sendSocketBtn
             // 
-            this.buttonSendSocket.Location = new System.Drawing.Point(54, 113);
-            this.buttonSendSocket.Name = "buttonSendSocket";
-            this.buttonSendSocket.Size = new System.Drawing.Size(174, 23);
-            this.buttonSendSocket.TabIndex = 1;
-            this.buttonSendSocket.Text = "Отправить socket";
-            this.buttonSendSocket.UseVisualStyleBackColor = true;
-            this.buttonSendSocket.Click += new System.EventHandler(this.buttonSendSocket_Click);
+            this.sendSocketBtn.Location = new System.Drawing.Point(54, 120);
+            this.sendSocketBtn.Name = "sendSocketBtn";
+            this.sendSocketBtn.Size = new System.Drawing.Size(174, 23);
+            this.sendSocketBtn.TabIndex = 1;
+            this.sendSocketBtn.Text = "Отправить socket";
+            this.sendSocketBtn.UseVisualStyleBackColor = true;
+            this.sendSocketBtn.Click += new System.EventHandler(this.buttonSendSocket_Click);
             // 
             // ipTextBox
             // 
@@ -60,6 +61,7 @@
             this.ipTextBox.Name = "ipTextBox";
             this.ipTextBox.Size = new System.Drawing.Size(100, 20);
             this.ipTextBox.TabIndex = 2;
+            this.ipTextBox.TextChanged += new System.EventHandler(this.ipTextBox_TextChanged);
             // 
             // label1
             // 
@@ -70,17 +72,30 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "IP:";
             // 
+            // connectBtn
+            // 
+            this.connectBtn.Location = new System.Drawing.Point(54, 91);
+            this.connectBtn.Name = "connectBtn";
+            this.connectBtn.Size = new System.Drawing.Size(174, 23);
+            this.connectBtn.TabIndex = 4;
+            this.connectBtn.Text = "Соединиться";
+            this.connectBtn.UseVisualStyleBackColor = true;
+            this.connectBtn.Click += new System.EventHandler(this.connectBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(284, 160);
+            this.Controls.Add(this.connectBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ipTextBox);
-            this.Controls.Add(this.buttonSendSocket);
+            this.Controls.Add(this.sendSocketBtn);
             this.Controls.Add(this.buttonSendQueue);
             this.Name = "Form1";
             this.Text = "Лабораторная 1 клиент";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +104,10 @@
         #endregion
 
         private System.Windows.Forms.Button buttonSendQueue;
-        private System.Windows.Forms.Button buttonSendSocket;
+        private System.Windows.Forms.Button sendSocketBtn;
         private System.Windows.Forms.TextBox ipTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button connectBtn;
     }
 }
 

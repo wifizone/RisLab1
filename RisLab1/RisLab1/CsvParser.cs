@@ -29,6 +29,11 @@ namespace RisLab1
             return dbEntries;
         }
 
+        public SocketMessage GetSocketMessage(string ip)
+        {
+            return new SocketMessage() {DbEntries = GetDbEntries(), IP = ip};
+        }
+
         private static DbEntry ConvertToDbEntry(string[] values)
         {
             return new DbEntry()

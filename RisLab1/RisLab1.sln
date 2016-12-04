@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RisLab1Client", "RisLab1\Ri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RisLab1Server", "RisLab1Server\RisLab1Server.csproj", "{72C65F6A-901E-40C4-BA36-06B52BC8AAB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMediator", "SendMediator\SendMediator.csproj", "{CD0D6C44-EA7D-4259-9B3B-86AAA7A8DBF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{72C65F6A-901E-40C4-BA36-06B52BC8AAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72C65F6A-901E-40C4-BA36-06B52BC8AAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72C65F6A-901E-40C4-BA36-06B52BC8AAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0D6C44-EA7D-4259-9B3B-86AAA7A8DBF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0D6C44-EA7D-4259-9B3B-86AAA7A8DBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD0D6C44-EA7D-4259-9B3B-86AAA7A8DBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0D6C44-EA7D-4259-9B3B-86AAA7A8DBF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

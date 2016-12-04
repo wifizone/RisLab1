@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace RisLab1
 {
-    class SocketSender
+    [Serializable]
+    public class SocketMessage
     {
-
+        public string IP { get; set; }
+        public List<DbEntry> DbEntries { get; set; }
     }
 }

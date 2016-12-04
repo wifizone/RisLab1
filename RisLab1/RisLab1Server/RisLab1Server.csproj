@@ -137,6 +137,10 @@
       <Project>{dddcdf61-4e98-4c2b-8f1e-4e8de76cc6c1}</Project>
       <Name>RisLab1Client</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SendMediator\SendMediator.csproj">
+      <Project>{cd0d6c44-ea7d-4259-9b3b-86aaa7a8dbf1}</Project>
+      <Name>SendMediator</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="SmartPhonesModel.Context.tt">
